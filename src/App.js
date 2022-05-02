@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import useTheme from "./hooks/useTheme";
+import styled, { ThemeProvider } from "styled-components";
+import Header from "./components/Header";
+import GlobalStyles, { themeDark, themeLight } from "./GlobalStyles";
+import Calculator from "./components/Calculator";
+import Footer from "./components/Footer";
 
 function App() {
+  const { theme, switchTheme } = useTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === "dark" ? themeDark : themeLight}>
+      <GlobalStyles />
+      <Wrapper>
+        <Header switchTheme={switchTheme} />
+        <Calculator />
+        {/* <Calculator /> */}
+        <Footer />
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  display: grid;
+  gap: 24px;
+`;
