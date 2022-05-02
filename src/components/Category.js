@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { keyframes } from "styled-components";
 
 const Category = ({ categoryData, setCategories }) => {
   const handleChange = (e) => {
     let value = parseInt(e.target.value);
     value = isNaN(value) ? "" : value;
-    if (value === "" || (value > 0 && value < 100)) {
+    if (value === "" || (value >= 0 && value <= 100)) {
       setCategories((prev) => {
         const update = prev.map((e) =>
           e.id === categoryData.id ? { ...e, score: value } : e
@@ -28,6 +29,17 @@ const Category = ({ categoryData, setCategories }) => {
 
 export default Category;
 
+const anim = keyframes`
+  from {
+    opacity: .25;
+    transform: rotateX(45deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+`;
+
 const StyledCategory = styled.div`
   background-color: ${(props) => props.theme.foregroundColor};
   padding: 20px 0;
@@ -37,6 +49,7 @@ const StyledCategory = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 5fr;
   gap: 20px;
+  animation: ${anim} 0.25s ease-in-out;
 `;
 
 const Title = styled.p`

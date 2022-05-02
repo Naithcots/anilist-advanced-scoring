@@ -18,10 +18,11 @@ const Categories = ({ categoriesArr, setCategories }) => {
 
 export default Categories;
 
+
+
 const StyledCategories = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
   justify-content: center;
   gap: 30px;
-  /* margin: 24px 0; */
 `;

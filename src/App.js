@@ -13,7 +13,6 @@ function App() {
       <Wrapper>
         <Header switchTheme={switchTheme} />
         <Calculator />
-        {/* <Calculator /> */}
         <Footer />
       </Wrapper>
     </ThemeProvider>
