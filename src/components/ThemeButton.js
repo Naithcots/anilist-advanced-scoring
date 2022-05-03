@@ -7,7 +7,8 @@ const ThemeButton = ({ switchTheme }) => {
 export default ThemeButton;
 
 const StyledThemeButton = styled.img.attrs((props) => ({
-  src: `/assets/icons/theme-light-dark-${props.theme.src}.png`,
+  src: `${process.env.PUBLIC_URL}/assets/icons/theme-light-dark-${props.theme.src}.png`,
+  alt: "Theme",
 }))`
   color: #fff;
   cursor: pointer;

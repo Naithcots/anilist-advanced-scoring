@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container } from "../GlobalStyles";
-import ThemeButton from "../ThemeButton";
+import ThemeButton from "./ThemeButton";
 
 const Header = ({ switchTheme }) => {
   return (

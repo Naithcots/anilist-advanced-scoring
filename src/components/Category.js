@@ -44,6 +44,7 @@ const StyledCategory = styled.div`
   background-color: ${(props) => props.theme.foregroundColor};
   padding: 20px 0;
   text-align: center;
+  border-radius: 12px;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -54,7 +55,7 @@ const StyledCategory = styled.div`
 
 const Title = styled.p`
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 1.125px;
   margin: 0;
@@ -67,10 +68,10 @@ const ScoreInput = styled.input.attrs(() => ({
   background-color: ${(props) => props.theme.backgroundColor};
   color: ${(props) => props.theme.color};
 
-  font-size: 52px;
+  font-size: 46px;
   width: 70%;
   max-width: 125px;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   text-align: center;
 
   display: flex;
