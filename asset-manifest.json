@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/anilist-advanced-scoring/static/js/main.2bc500af.js",
+    "main.js": "/anilist-advanced-scoring/static/js/main.087e103a.js",
     "index.html": "/anilist-advanced-scoring/index.html",
-    "main.2bc500af.js.map": "/anilist-advanced-scoring/static/js/main.2bc500af.js.map"
+    "main.087e103a.js.map": "/anilist-advanced-scoring/static/js/main.087e103a.js.map"
   },
   "entrypoints": [
-    "static/js/main.2bc500af.js"
+    "static/js/main.087e103a.js"
   ]
 }
