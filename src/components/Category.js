@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { keyframes } from "styled-components";
 
 const Category = ({ categoryData, setCategories }) => {
-  const handleChange = (e) => {
+  const handleScoreChange = (e) => {
     let value = parseInt(e.target.value);
     value = isNaN(value) ? "" : value;
     if (value === "" || (value >= 0 && value <= 100)) {
@@ -15,12 +15,31 @@ const Category = ({ categoryData, setCategories }) => {
     }
   };
 
+  const handleWeightChange = (e) => {
+    let value = e.target.value;
+    value = isNaN(value) ? "" : value;
+    setCategories((prev) => {
+      const update = prev.map((e) =>
+        e.id === categoryData.id ? { ...e, weight: value } : e
+      );
+      return update;
+    });
+  };
+
   return (
     <StyledCategory>
       <Title>{categoryData.name}</Title>
-      <ScoreInput onChange={handleChange} value={categoryData.score} required />
+      <ScoreInput
+        onChange={handleScoreChange}
+        value={categoryData.score}
+        required
+      />
       <Weight>
-        <WeightNumber>{categoryData.weight}</WeightNumber>
+        {/* <WeightNumber>{categoryData.weight}</WeightNumber> */}
+        <WeightInput
+          onChange={handleWeightChange}
+          value={categoryData.weight}
+        ></WeightInput>
         <WeightDesc>weight</WeightDesc>
       </Weight>
     </StyledCategory>
@@ -86,10 +105,25 @@ const Weight = styled.div`
   margin: 0;
 `;
 
-const WeightNumber = styled.p`
-  margin: 0;
-  font-size: 20px;
-  font-weight: 300;
+// const WeightNumber = styled.p`
+//   margin: 0;
+//   font-size: 20px;
+//   font-weight: 300;
+// `;
+
+const WeightInput = styled.input.attrs(() => ({
+  type: "text",
+}))`
+  width: 50%;
+  text-align: center;
+  border: none;
+  color: ${(props) => props.theme.color};
+  background-color: ${(props) => props.theme.backgroundColor};
+  padding: 3px 0;
+
+  &:focus {
+    outline: 1px solid rgba(255, 255, 255, 25%);
+  }
 `;
 
 const WeightDesc = styled.span`
@@ -98,4 +132,5 @@ const WeightDesc = styled.span`
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.5px;
+  margin-top: 2px;
 `;

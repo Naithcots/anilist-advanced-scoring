@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { Container } from "../GlobalStyles";
 
-const Results = ({ overallScore }) => {
+const Results = ({ overallScore, combinedWeight }) => {
   return (
     <StyledResults>
       <Container>
         <OverallScore>{overallScore}</OverallScore>
         <OverallDesc>overall score</OverallDesc>
+        <OverallDesc>
+          weight: {combinedWeight && +combinedWeight.toFixed(2)}
+        </OverallDesc>
       </Container>
     </StyledResults>
   );

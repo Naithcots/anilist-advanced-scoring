@@ -12,9 +12,4 @@ const StyledThemeButton = styled.img.attrs((props) => ({
 }))`
   color: #fff;
   cursor: pointer;
-  transition: transform 0.125s ease-in-out;
-
-  &:hover {
-    transform: rotateX(45deg);
-  }
 `;
